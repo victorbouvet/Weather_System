@@ -20,15 +20,6 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
--- Uncomment the following library declaration if using
--- arithmetic functions with Signed or Unsigned values
---use IEEE.NUMERIC_STD.ALL;
-
--- Uncomment the following library declaration if instantiating
--- any Xilinx primitives in this code.
---library UNISIM;
---use UNISIM.VComponents.all;
-
 entity gray_decoder_4bit is
     Port ( weathercock : in  STD_LOGIC_VECTOR (3 downto 0);
            wind_dir : out  STD_LOGIC_VECTOR (15 downto 0));
@@ -38,7 +29,6 @@ architecture Behavioral of gray_decoder_4bit is
 
 begin
 				 
-
 wind_dir(0)<= weathercock(3) OR weathercock(2) OR weathercock(1) OR weathercock(0);
 wind_dir(1)<= weathercock(3) OR weathercock(2) OR weathercock(1) OR NOT weathercock(0);
 wind_dir(2)<= weathercock(3) OR weathercock(2) OR NOT weathercock(1) OR NOT weathercock(0);
@@ -56,6 +46,4 @@ wind_dir(13)<= NOT weathercock(3) OR weathercock(2) OR NOT weathercock(1) OR NOT
 wind_dir(14)<= NOT weathercock(3) OR weathercock(2) OR weathercock(1) OR NOT weathercock(0);
 wind_dir(15)<= NOT weathercock(3) OR weathercock(2) OR weathercock(1) OR weathercock(0);
 
-
 end Behavioral;
-
