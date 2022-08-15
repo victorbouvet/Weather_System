@@ -2,8 +2,8 @@
 
 The prototype is an electronic system allowing the display of data from a wind vane or anemometer. 
 
-## Requirements
-- A XC2C64A CPLD
+## Material needed
+- a XC2C64A CPLD
 - a mechanical encoder in GRAY code 25LB22-G from GrayHill, 
 - a cup anemometer 
 - two micro-switches
