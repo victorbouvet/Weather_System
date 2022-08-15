@@ -12,6 +12,14 @@ The prototype is an electronic system allowing the display of data from a wind v
 
 ## Schematic of the prototype
 
+The CPLD XC2C64A is only available in a VQFP SMD package, so we will use a C-MOD_C2 board allowing wiring on a board. On this C-MOD_C2 board we find the CPLD, a regulator allowing to manage the component power supplies and a JTAG connector allowing its programming. 
+
+Resistors are added to the mechanical encoder, to the anemometer and to the micro-switches, in order to ensure, on their outputs, logic levels allowing to correctly drive the CPLD. A filtering capacitor of the parasites is added to the anemometer. 
+
+The schematic of the INVERTER oscillator is a classical schematic using 3 INVERTERS 74HC04, two resistors, a potentiometer and a capacitor. The frequency of the oscillator will be set at about 15 kHz. 
+
+The 100 nF capacitor placed on the INVERTERS power supplies is a decoupling capacitor. The whole set is supplied in 3.3 V. 
+
 ![alt](Girouette_v2-1.jpg)
 
 ## Project specifications
