@@ -1,6 +1,6 @@
 # Weather system prototype
 
-##### 8 hours of practical work (VHDL code, analysis of simulations, wiring and testing of the prototype)
+##### 8 hours of practical work (VHDL code, analysis of simulations, wiring and testing of the prototype) and writing of a summary report
 
 The prototype is an electronic system allowing the display of data from a wind vane or anemometer. 
 
