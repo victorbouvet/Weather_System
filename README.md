@@ -44,6 +44,8 @@ A first micro-switch will allow to choose between the GIROUETTE mode and the ANE
 
 ### Processing subsystem
 
+![alt](Screenshot_20220816-103432_Adobe Acrobat.jpg)
+
 The processing subsystem will be named weather_system and will be integrated in the XILINX CPLD XC2C64A. The component has 44 inputs/outputs and its number of macrocells is 64. 
 
 The GRAY code obtained at the output of the mechanical encoder will be transcoded into NATURAL BINARY and each of the 16 possible combinations will be decoded in order to indicate the wind direction from the illumination of one LED among 16. The GRAY code or the NATURAL BINARY code will be displayed on 4 other LEDs. The signal from the cup anemometer will be processed to display the wind intensity on 20 LEDs. 
