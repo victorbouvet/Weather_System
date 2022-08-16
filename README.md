@@ -86,9 +86,11 @@ The 3 blocks of weather_system are :
   - freq_divider: Frequency divider of the clock signal to provide an output counter_rst signal. This signal periodically emits pulses to indicate a reset of the counter_5bit.
   - counter_5bit: Synchronous binary counter that sums the number of counter_ena pulses between two counter_rst pulses (reset). The faster the anemometer rotates, the greater the number of pulses between two counter_rst pulses. The sum of these pulses will form the speed_code signal defined on 5 bits.
   - transcoder_speed: Transcoder which provides a wind_speed signal defined on 20 bits according to the speed_code value. The wind_speed output is active in the low state.
-
+    ![](synoptics/wind_speed2.jpg)
+    ![](synoptics/wind_speed1.jpg)
 
 - mux_2x1x20bit : Module that receives the outputs from Decoder and Speed_counter and will, depending on the value of mode_select, either display the gray/natural binary code and the position of the wind vane or the wind speed on the LEDs of the bar graph.
+![](synoptics/mux20.jpg)
 
 ### Visualization subsystem
 
