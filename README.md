@@ -71,7 +71,11 @@ The output signals are :
 
 The 3 blocks of weather_system are :
 - Decoder : Module that decodes the weathercock input and returns the wind vane position on wind_dir and the Gray or equivalent binary code on code_display output.
+![](Decoder.jpg)
+
 - Speed_counter : Module that analyses the number of all or nothing signals received during a clock stroke and deduces wind_speed.
+![](Speed_counter.jpg)
+
 - mux_2x1x20bit : Module that receives the outputs from Decoder and Speed_counter and will, depending on the value of mode_select, either display the gray/natural binary code and the position of the wind vane or the wind speed on the LEDs of the bar graph.
 
 ### Visualization subsystem
