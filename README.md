@@ -88,6 +88,7 @@ The 3 blocks of weather_system are :
   - transcoder_speed: Transcoder which provides a wind_speed signal defined on 20 bits according to the speed_code value. The wind_speed output is active in the low state.
     ![](synoptics/wind_speed2.jpg)
     ![](synoptics/wind_speed1.jpg)
+    > 0-9 : 10 LEDs so 2x 0-9 (see above) correspond to the 20 LEDs to display the wind force
 
 - mux_2x1x20bit : Module that receives the outputs from Decoder and Speed_counter and will, depending on the value of mode_select, either display the gray/natural binary code and the position of the wind vane or the wind speed on the LEDs of the bar graph.
 ![](synoptics/mux20.jpg)
