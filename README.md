@@ -69,6 +69,11 @@ The output signals are :
   - code_wind_speed: 4-bit signal that displays the GRAY or natural binary code equivalent of the mechanical encoder on the LEDs.
   - wind_dir_speed : 16 bits signal which displays the wind vane position (1 position per bit).
 
+The 3 blocks of weather_system are :
+- Decoder : Module that decodes the weathercock input and returns the wind vane position on wind_dir and the Gray or equivalent binary code on code_display output.
+- Speed_counter : Module that analyses the number of all or nothing signals received during a clock stroke and deduces wind_speed.
+- mux_2x1x20bit : Module that receives the outputs from Decoder and Speed_counter and will, depending on the value of mode_select, either display the gray/natural binary code and the position of the wind vane or the wind speed on the LEDs of the bar graph.
+
 ### Visualization subsystem
 
 The visualization of the signals is ensured by two LED displays or bar-graph (2*10 LEDs). An LED will be illuminated when the signal to be visualized is in LOW state. 
