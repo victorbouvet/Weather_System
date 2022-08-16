@@ -75,6 +75,7 @@ The 3 blocks of weather_system are :
   - gray_bin_4bit: Transcoder which outputs the binary_code signal encoded in natural binary from the weathercock input signal from the encoder.
   - mux_2x1x4bit: Multiplexer that transmits on the not_code_display output defined on 4 bits either the weathercock signal in GRAY or the binary_code signal in natural binary depending on the code_select value (0 = GRAY, 1 = natural binary).
   - gray_decoder_4bit: Decoder that sets one of the 16 bits of the wind_dir signal from the received weathercock signal as output. The decoder outputs are set to LOW. 
+    ![](Bits_wind_dir.jpg)
     North is associated with weathercock = "0000" and wind_dir(0).
   - inv_4bit: 4 inverters that invert the not_code_display signal and output the code_display signal.
 
@@ -82,6 +83,11 @@ The 3 blocks of weather_system are :
 
 - Speed_counter : Module that analyses the number of all or nothing signals received during a clock stroke and deduces wind_speed.
 ![](Speed_counter.jpg)
+  - risingedge_detector: module that compares the clock and anemometer signals and provides the counter_ena signal as output. When there is an edge on the anemometer signal (rising or falling), counter_ena goes to 1 which will create a pulse edge.
+  - freq_divider: module that divides the frequency of the clock signal to provide an output counter_rst signal. This signal periodically emits pulses to indicate a reset of the counter_5bit.
+  - counter_5bit: binary counter that sums the number of counter_ena pulses between two counter_rst pulses (reset). The faster the anemometer rotates, the greater the number of pulses between two counter_rst pulses. The sum of these pulses will form the speed_code signal defined on 5 bits.
+  - transcoder_speed: transcoder which provides a wind_speed signal defined on 20 bits according to the speed_code value. The wind_speed output is active in the low state.
+
 
 - mux_2x1x20bit : Module that receives the outputs from Decoder and Speed_counter and will, depending on the value of mode_select, either display the gray/natural binary code and the position of the wind vane or the wind speed on the LEDs of the bar graph.
 
