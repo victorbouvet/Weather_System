@@ -72,6 +72,13 @@ The output signals are :
 The 3 blocks of weather_system are :
 - Decoder : Module that decodes the weathercock input and returns the wind vane position on wind_dir and the Gray or equivalent binary code on code_display output.
 ![](Decoder.jpg)
+  - gray_bin_4bit: Transcoder which outputs the binary_code signal encoded in natural binary from the weathercock input signal from the encoder.
+  - mux_2x1x4bit: Multiplexer that transmits on the not_code_display output defined on 4 bits either the weathercock signal in GRAY or the binary_code signal in natural binary depending on the code_select value (0 = GRAY, 1 = natural binary).
+  - gray_decoder_4bit: Decoder that sets one of the 16 bits of the wind_dir signal from the received weathercock signal as output. The decoder outputs are set to LOW. 
+    North is associated with weathercock = "0000" and wind_dir(0).
+  - inv_4bit: 4 inverters that invert the not_code_display signal and output the code_display signal.
+
+
 
 - Speed_counter : Module that analyses the number of all or nothing signals received during a clock stroke and deduces wind_speed.
 ![](Speed_counter.jpg)
