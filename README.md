@@ -48,7 +48,7 @@ A first micro-switch will allow to choose between the GIROUETTE mode and the ANE
 
 ### Processing subsystem
 
-![alt](weather_system.jpg)
+![alt](synoptics/weather_system.jpg)
 
 The processing subsystem will be named weather_system and will be integrated in the XILINX CPLD XC2C64A. The component has 44 inputs/outputs and its number of macrocells is 64. 
 
@@ -71,17 +71,17 @@ The output signals are :
 
 The 3 blocks of weather_system are :
 - Decoder : Module that decodes the weathercock input and returns the wind vane position on wind_dir and the Gray or equivalent binary code on code_display output.
-![](Decoder.jpg)
+![](synoptics/Decoder.jpg)
   - gray_bin_4bit: Transcoder which outputs the binary_code signal encoded in natural binary from the weathercock input signal from the encoder.
   - mux_2x1x4bit: Multiplexer that transmits on the not_code_display output defined on 4 bits either the weathercock signal in GRAY or the binary_code signal in natural binary depending on the code_select value (0 = GRAY, 1 = natural binary).
   - gray_decoder_4bit: Decoder that sets one of the 16 bits of the wind_dir signal from the received weathercock signal as output. The decoder outputs are set to LOW. 
-    ![](Bits_wind_dir.jpg)
+    ![](synoptics/Bits_wind_dir.jpg)
     North is associated with weathercock = "0000" and wind_dir(0).
   - inv_4bit: 4 inverters that invert the not_code_display signal and output the code_display signal.
 
 
 - Speed_counter : Module that analyses the number of all or nothing signals received during a clock stroke and deduces wind_speed.
-![](Speed_counter.jpg)
+![](synoptics/Speed_counter.jpg)
   - risingedge_detector: Module that compares the clock and anemometer signals and provides the counter_ena signal as output. When there is an edge on the anemometer signal (rising or falling), counter_ena goes to 1 which will create a pulse edge to the rhythm of the anemometer's rotation.
   - freq_divider: Frequency divider of the clock signal to provide an output counter_rst signal. This signal periodically emits pulses to indicate a reset of the counter_5bit.
   - counter_5bit: Synchronous binary counter that sums the number of counter_ena pulses between two counter_rst pulses (reset). The faster the anemometer rotates, the greater the number of pulses between two counter_rst pulses. The sum of these pulses will form the speed_code signal defined on 5 bits.
@@ -98,12 +98,12 @@ The visualization of the signals is ensured by two LED displays or bar-graph (2*
 ## Appendix
 ### GRAY mechanical encoder
 
-![](Gray_Encoder.jpg)
+![](synoptics/Gray_Encoder.jpg)
 
 This mechanical encoder, 25LB22-G from Grayhill, is made of a disc rotating on 360° with a copper comb (see on the right of the picture). The teeth of this comb are put in contact with 5 electrical tracks of a printed circuit board (PCB). The tracks of this PCB have been designed to correspond to 5 concentric circles, 4 of which are discontinuous (see left of the picture). By a spring effect, each tooth of the comb is associated with one of the discs. The continuous circle in the center of the PCB is connected to a positive potential. In case of contact, a tooth of the comb will connect the central track to the corresponding track constituting a kind of switch. Thus, according to the design of the tracks, the voltage levels at the output of the mechanical encoder will evolve according to a Gray code type coding on 4 bits (16 possible positions). The position of the encoder is fixed from a ball and a spring. 
 
 ### Anemometer
 
-![](Anemometer.jpg)
+![](synoptics/Anemometer.jpg)
 
 The anemometer is a rotating device with cups. It consists of an "all or nothing" sensor connected to two wires. Depending on the position of the cups, the two wires will be connected together or not. 
