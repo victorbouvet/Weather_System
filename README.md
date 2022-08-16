@@ -54,6 +54,21 @@ The processing subsystem will be named weather_system and will be integrated in 
 
 The GRAY code obtained at the output of the mechanical encoder will be transcoded into NATURAL BINARY and each of the 16 possible combinations will be decoded in order to indicate the wind direction from the illumination of one LED among 16. The GRAY code or the NATURAL BINARY code will be displayed on 4 other LEDs. The signal from the cup anemometer will be processed to display the wind intensity on 20 LEDs. 
 
+The input signals are :
+- weathercock: 4-bit signal from the GRAY mechanical encoder that corresponds to the position of the wind vane. The wind vane has only 16 possible positions.
+- code_select : signal coming from the second switch allowing to display on the LEDs the GRAY code or equivalent natural binary (0 = GRAY, 1= natural binary).
+- mode_select : signal coming from the first switch allowing to select the type of data to be displayed (0 = wind vane, 1= anemometer).
+- anemometer : signal coming from an all or nothing sensor. Depending on the position of the cups, the wires will be connected (1) or not (0). The faster the anemometer rotates, the faster the sensor will change state over the same time period.
+- clock : square periodic signal with a frequency between 10 KHz and 20 KHz.
+
+The output signals are :
+- Anemometer mode:
+  - The code_wind_speed and wind_dir_speed outputs form a single bus named wind_speed defined on 20 bits that displays the wind speed. The more LEDs are lit, the higher the wind speed.
+
+- Wind vane mode:
+  - code_wind_speed: 4-bit signal that displays the GRAY or natural binary code equivalent of the mechanical encoder on the LEDs.
+  - wind_dir_speed : 16 bits signal which displays the wind vane position (1 position per bit).
+
 ### Visualization subsystem
 
 The visualization of the signals is ensured by two LED displays or bar-graph (2*10 LEDs). An LED will be illuminated when the signal to be visualized is in LOW state. 
