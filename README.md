@@ -4,7 +4,7 @@
 
 The prototype is an electronic system allowing the display of data from a wind vane or anemometer. 
 
-We worked on the processing subsystem part (development in VHDL of the entities integrated in the CPLD, analysis of the results, wiring and laboratory testing of the prototype).
+We mainly worked on the processing subsystem part (development in VHDL of the entities integrated in the CPLD, analysis of the results, wiring and laboratory testing of the prototype).
 
 ## Material needed
 - a XC2C64A CPLD
