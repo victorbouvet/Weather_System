@@ -1,6 +1,10 @@
 # Weather system prototype
 
+##### 8 hours of practical work (VHDL code, analysis of simulations, wiring and testing of the prototype)
+
 The prototype is an electronic system allowing the display of data from a wind vane or anemometer. 
+
+We worked on the processing subsystem part (development in VHDL of the entities integrated in the CPLD, analysis of the results, wiring and laboratory testing of the prototype).
 
 ## Material needed
 - a XC2C64A CPLD
