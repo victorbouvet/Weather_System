@@ -1,6 +1,6 @@
 # Weather system prototype
 
-##### 8 hours of practical work (VHDL code, analysis of simulations, wiring and testing of the prototype) and writing of a summary report
+##### 8 hours of practical work (VHDL code, analysis of simulations, wiring and testing of the prototype) + writing of a summary report
 
 The prototype is an electronic system allowing the display of data from a wind vane or anemometer. 
 
@@ -71,5 +71,3 @@ This mechanical encoder, 25LB22-G from Grayhill, is made of a disc rotating on 3
 ![](Anemometer.jpg)
 
 The anemometer is a rotating device with cups. It consists of an "all or nothing" sensor connected to two wires. Depending on the position of the cups, the two wires will be connected together or not. 
-
-
